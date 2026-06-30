@@ -75,145 +75,27 @@ Verdict + Confidence + Evidence
 
 ---
 
-## Project Structure
 
-```
-FACT CHECK/
-├── main.py                     ← FastAPI app + API endpoints
-├── pipeline.py                 ← RAG pipeline orchestration
-├── requirements.txt
-├── .env.example
-│
-├── agents/
-│   ├── agent_prompt.py         ← Fact-check prompt
-│   ├── agent_schema.py         ← Pydantic output schema
-│   └── generation.py           ← Gemini LLM wrapper
-│
-├── claims/
-│   ├── claim_agent.py          ← Claim extraction
-│   ├── prompt.py               ← Extraction prompt
-│   └── schema.py               ← ClaimList schema
-│
-├── Document_reader/
-│   ├── chunker.py              ← Text chunking
-│   └── pdf_reader.py           ← PDF text extraction
-│
-├── Retrieval/
-│   ├── Wikipedia.py            ← Wikipedia REST API retrieval
-│   └── query_rewriter.py       ← LLM query rewriting
-│
-├── vector_db/
-│   └── Faiss.py                ← FAISS vector store + MMR
-│
-└── factcheck-react/            ← React frontend
-    └── src/
-        ├── App.jsx
-        ├── api.js
-        └── components/
-            ├── Navbar.jsx
-            ├── Hero.jsx
-            ├── InputSection.jsx
-            ├── ClaimSelector.jsx
-            ├── ResultCard.jsx
-            └── StatsPanel.jsx
-```
 
----
-
-## Setup
-
-### 1. Clone the repository
-```bash
-git clone https://github.com/yourusername/veritas-ai.git
-cd veritas-ai
-```
-
-### 2. Create virtual environment
-```bash
-python -m venv venv
-
-# Windows
-venv\Scripts\activate
-
-# Mac/Linux
-source venv/bin/activate
-```
-
-### 3. Install dependencies
-```bash
-pip install -r requirements.txt
-python -m spacy download en_core_web_sm
-```
-
-### 4. Get a Google API key
-- Go to https://aistudio.google.com
-- Click **Get API Key**
-- Copy the key
-
-### 5. Configure environment
-```bash
-cp .env.example .env
-# Open .env and paste your API key
-```
 
 `.env` file:
 ```
 GOOGLE_API_KEY=your_google_api_key_here
 ```
 
-### 6. Run the backend
+### Run the backend
 ```bash
 uvicorn main:app --reload --port 8000
 ```
 
-### 7. Run the frontend
+### Run the frontend
 ```bash
 cd factcheck-react
 npm install
 npm start
 ```
 
-Frontend: http://localhost:3000
-Backend: http://localhost:8000
-API Docs: http://localhost:8000/docs
-
 ---
-
-## API Endpoints
-
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | `/health` | Health check |
-| POST | `/extract-claims` | Extract claims from text |
-| POST | `/extract-claims-pdf` | Extract claims from PDF |
-| POST | `/fact-check` | Verify a single claim |
-
-### Example
-
-```bash
-# Extract claims
-curl -X POST http://localhost:8000/extract-claims \
-  -H "Content-Type: application/json" \
-  -d '{"text": "The Eiffel Tower was built in 1889 and is located in Berlin."}'
-
-# Fact check
-curl -X POST http://localhost:8000/fact-check \
-  -H "Content-Type: application/json" \
-  -d '{"claim": "The Eiffel Tower is located in Berlin."}'
-```
-
-### Response
-```json
-{
-  "verdict": "False",
-  "confidence": 0.97,
-  "source": "Wikipedia",
-  "evidence_chunks": [
-    "The Eiffel Tower is a lattice tower on the Champ de Mars in Paris, France."
-  ],
-  "detailed_analysis": "The evidence explicitly states the Eiffel Tower is located in Paris, France. The claim incorrectly places it in Berlin."
-}
-```
 
 ---
 ## Requirements
@@ -240,3 +122,4 @@ streamlit
 ```
 
 ---
+

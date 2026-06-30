@@ -21,7 +21,7 @@ VERITAS AI takes any text or PDF document, extracts all verifiable factual claim
 # 🎬 Project Demo
 
 ▶️ <p align="center">
-  <img src="assets/demo.gif" alt="VERITAS Demo" width="900"/>
+  <img src="assets/Demo_gif.gif" alt="VERITAS Demo" width="900"/>
 </p>
 
 

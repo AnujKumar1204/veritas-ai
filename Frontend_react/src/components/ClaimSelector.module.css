@@ -1,0 +1,164 @@
+.section {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+  animation: fadeUp 0.4s ease both;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 1.25rem;
+}
+
+.stepTag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid rgba(59,130,246,0.3);
+  border-radius: var(--radius-sm);
+  padding: 3px 8px;
+  letter-spacing: 0.05em;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.headerText { flex: 1; }
+
+.title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.selectAll {
+  background: none;
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 12px;
+  margin-top: 2px;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+.selectAll:hover {
+  border-color: var(--accent);
+  color: var(--accent-bright);
+}
+
+.list {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-dim);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.claimRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border: none;
+  border-bottom: 1px solid var(--border-dim);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.12s;
+  width: 100%;
+}
+.claimRow:last-child { border-bottom: none; }
+.claimRow:hover { background: var(--bg-elevated); }
+.claimRow.selected { background: rgba(59,130,246,0.05); }
+
+.checkbox {
+  width: 18px; height: 18px;
+  border: 1.5px solid var(--border-bright);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.15s;
+  background: var(--bg-elevated);
+  color: #fff;
+}
+.checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.claimIdx {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  min-width: 20px;
+}
+
+.claimText {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.selected .claimText { color: var(--text-primary); }
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding: 0 4px;
+}
+
+.countLabel {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.countNum {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: var(--accent-bright);
+}
+
+.verifyBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.15s;
+  border: none;
+}
+.verifyBtn:hover:not(:disabled) {
+  background: var(--accent-bright);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(59,130,246,0.3);
+}
+.verifyBtn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.spinner {
+  width: 13px; height: 13px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.65s linear infinite;
+}

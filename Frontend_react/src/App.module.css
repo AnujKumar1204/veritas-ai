@@ -1,0 +1,79 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  padding-top: 2rem;
+}
+
+.error {
+  max-width: 760px;
+  margin: 0 auto 1.5rem;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.error > * {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--red-dim);
+  border: 1px solid var(--red-border);
+  border-radius: var(--radius-md);
+  color: var(--red);
+  font-size: 13px;
+  width: 100%;
+}
+
+.resultsSection {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+  animation: fadeUp 0.4s ease both;
+}
+
+.resultsHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 1.25rem;
+}
+
+.stepTag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid rgba(59,130,246,0.3);
+  border-radius: var(--radius-sm);
+  padding: 3px 8px;
+  letter-spacing: 0.05em;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.resultsTitle {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.resultsSub {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.resultsList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

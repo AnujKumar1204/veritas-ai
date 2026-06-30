@@ -18,6 +18,14 @@ VERITAS AI takes any text or PDF document, extracts all verifiable factual claim
 
 ---
 
+# 🎬 Project Demo
+
+▶️ **[Click here to watch the demo](assets/demo_video.mp4)**
+
+---
+
+
+
 ## Architecture
 
 ```
@@ -60,40 +68,6 @@ Verdict + Confidence + Evidence
 | Backend | FastAPI |
 | Frontend | React 18 |
 | PDF Parsing | PyPDF |
-
----
-
-## RAG Pipeline Details
-
-**Query Rewriting** — instead of passing the raw claim to Wikipedia, Gemini rewrites it into the optimal Wikipedia article title (e.g. "5G networks cause COVID" → "5G COVID-19 conspiracy theory")
-
-**Semantic Chunking** — Wikipedia articles are split using regex sentence boundaries, preserving complete sentences instead of cutting mid-word
-
-**FAISS MMR** — Maximum Marginal Relevance retrieval fetches diverse and relevant chunks, avoiding repeated similar content
-
-**Grounded Generation** — the LLM is strictly prompted to base its verdict only on retrieved evidence, making every answer traceable
-
----
-
-
-
-
-`.env` file:
-```
-GOOGLE_API_KEY=your_google_api_key_here
-```
-
-### Run the backend
-```bash
-uvicorn main:app --reload --port 8000
-```
-
-### Run the frontend
-```bash
-cd factcheck-react
-npm install
-npm start
-```
 
 ---
 
